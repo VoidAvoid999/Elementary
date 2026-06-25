@@ -5,6 +5,7 @@ import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 
@@ -31,8 +32,11 @@ public class Main extends Application {
 		stage.setWidth(420); // in pixels
 		stage.setHeight(420);
 		//stage.setResizable(false);
-		stage.setX(0);
-		stage.setY(50); // + = down, - = up
+		stage.setX(0); // + = right, - = left
+		stage.setY(0); // + = down, - = up
+		stage.setFullScreen(true); // full screen mode
+		stage.setFullScreenExitHint("YOU CAN'T ESCAPE unless you press the escape key duhh"); // text displayed
+		stage.setFullScreenExitKeyCombination(KeyCombination.valueOf("esc")); // key to escape
 		
 		stage.setScene(scene); // set the scene
 		stage.show(); // show the stage
