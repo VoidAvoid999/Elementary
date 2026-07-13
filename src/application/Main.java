@@ -5,6 +5,7 @@ import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
@@ -70,11 +71,17 @@ public class Main extends Application {
 		ball.setRadius(50);
 		ball.setFill(Color.ORANGE);
 		
+		Image food = new Image("burger.png");
+		ImageView imageView = new ImageView(food);
+		imageView.setX(25);
+		imageView.setY(250);
+		
 		root.getChildren().add(welcome);
 		root.getChildren().add(seperator);
 		root.getChildren().add(button);
 		root.getChildren().add(bill);
 		root.getChildren().add(ball);
+		root.getChildren().add(imageView);
 		Image icon = new Image("icon.png"); // icon in src
 		stage.getIcons().add(icon);
 		stage.setTitle("Elementry Calculator");
