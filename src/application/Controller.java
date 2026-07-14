@@ -12,28 +12,58 @@ public class Controller {
 	private double result = 0.0;
 	
 	private ArrayList<Double> input = new ArrayList<>();
+	private ArrayList<Double> order = new ArrayList<>();
 	
 	public void addition(ActionEvent e) {
 		System.out.println("+");
+		for (byte i = 0; i < input.size(); i++) {
+			result += input.get(i);
+			System.out.println("result = " + result);
+		}
 	}
 	
 	public void subtraction(ActionEvent e) {
 		System.out.println("-");
+		result = input.getFirst();
+		System.out.println("res: " + result);
+		
+		for (byte i = 1; i < input.size(); i++) {
+			result -= input.get(i);
+			System.out.println("result = " + result);
+		}
+		
+		input.clear();	
+		position = -1;
 	}
 	
 	public void multiplication(ActionEvent e) {
 		System.out.println("*");
+		result = input.getFirst();
+		for (byte i = 1; i < input.size(); i++) {
+			System.out.println("i = " + i);
+			result *= input.get(i);
+			System.out.println("result = " + result);
+		}
+		input.clear();	
+		position = -1;
 	}
 	
 	public void division(ActionEvent e) {
 		System.out.println("/");
+		result = input.getFirst();
+		for (byte i = 1; i < input.size(); i++) {
+			result /= input.get(i);
+			System.out.println("result = " + result);
+		}
+		input.clear();	
+		position = -1;
 	}
 	
 	public void equals(ActionEvent e) {
-		System.out.println(" = " + result);
+		System.out.println("result:" + result);
 		input.clear();
 		position = -1;
-		
+		result = 0.0;
 	}
 	
 	public void decimal(ActionEvent e) {
