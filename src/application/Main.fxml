@@ -9,7 +9,7 @@
       <Button layoutX="12.0" layoutY="175.0" mnemonicParsing="false" onAction="#four" text="4" />
       <Button layoutX="12.0" layoutY="100.0" mnemonicParsing="false" onAction="#seven" text="7" />
       <Button layoutX="12.0" layoutY="250.0" mnemonicParsing="false" onAction="#one" text="1" />
-      <TextField layoutX="12.0" layoutY="25.0" prefHeight="24.0" prefWidth="229.0" />
+      <TextField fx:id="textField" layoutX="12.0" layoutY="25.0" onAction="#enterKey" prefHeight="24.0" prefWidth="229.0" />
       <Button layoutX="112.0" layoutY="100.0" mnemonicParsing="false" onAction="#eight" text="8" />
       <Button layoutX="112.0" layoutY="175.0" mnemonicParsing="false" onAction="#five" text="5" />
       <Button layoutX="112.0" layoutY="250.0" mnemonicParsing="false" onAction="#two" text="2" />
@@ -23,5 +23,6 @@
       <Button layoutX="312.0" layoutY="250.0" mnemonicParsing="false" onAction="#multiplication" text="*" />
       <Button layoutX="312.0" layoutY="325.0" mnemonicParsing="false" onAction="#division" text="/" />
       <Button layoutX="212.0" layoutY="325.0" mnemonicParsing="false" onAction="#equals" text="=" />
+      <Button layoutX="313.0" layoutY="25.0" mnemonicParsing="false" onAction="#clear" text="C" />
    </children>
 </AnchorPane>
