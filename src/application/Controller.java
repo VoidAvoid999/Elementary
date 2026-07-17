@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 
 public class Controller {
 	
@@ -12,12 +13,19 @@ public class Controller {
 	private ArrayList<Double> input = new ArrayList<>();
 	
 	public TextField textField;
+	public ToggleButton themeButton;
 	
 	private boolean error = false;
 	private double result = 0.0;
 	private byte position = -1;
 	private byte operation = 4;
 	private byte lastInput = -1;
+	
+	public void theme(ActionEvent e) {
+		System.out.println("theme");
+		
+		
+	}
 	
 	public void enterKey(ActionEvent e) {
 		

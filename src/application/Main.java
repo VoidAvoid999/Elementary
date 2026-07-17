@@ -6,6 +6,7 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 
 public class Main extends Application {
 	
@@ -18,6 +19,7 @@ public class Main extends Application {
 				
 				Image icon = new Image("icon.png");
 				primaryStage.getIcons().add(icon);
+				primaryStage.setTitle("Elementary Calculator");
 				primaryStage.setScene(scene);
 				primaryStage.show();
 			} catch(Exception e) {

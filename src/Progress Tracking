@@ -1,0 +1,44 @@
+*** To-do ***
+- Create a proper github page
+	1. Detailed description of program
+	2. Upload demo screenshots and GIF
+- Create a playable web URL demo
+- Create screenshots and GIF of app
+- Add licensing info into the source code
+- Make code actually follow Java coding conventions
+- Add decimal functionality
+- Add dark mode toggle
+- Fix bugs listed below (duhh) 
+
+*** Current bugs ***
+Issue: After having the calculator solve an equation, it can't properly solve again when another part of an equation is added
+Steps to reproduce: 
+	1. Solve an equation (don't clear the calculator) 
+	2. Add 1 or more operators and values after the answer to create another equation
+	3. Attempt to solve for the new quation, an incorrect answer will be outputted
+Cause: Order of operations is wrong due to the previously inputted values still being stored in the input ArrayList (new system to store values needed?)
+	
+Issue: Nodes do not resize themselves when the window is resized
+Steps to reproduce:
+	1. Open the GUI application
+	2. Resize the window with the cursor or fullscreen button, nodes will not adjust their size to match the resolution of the window
+Cause: Not a default functionality of JavaFX nodes (do node objects have a property to control this?).
+
+Issue: Equations cannot be solved when entered via typing into the TextField 
+Steps to reproduce: 
+	1. Enter an equation into the TextField by selecting it and then typing on the keyboard
+	2. "error, no operation selected" will appear in the Textfield and. Either the clearbutton or a number button must be pressed for the calculator to function again
+Cause: TextField used String values while the Input ArrayList uses wrapper Double values (how does conversion work between them?).
+
+Issue: Equations with two or more distinct operators cannot be solved properly
+Steps to reproduce:
+	1. Enter an equation that contains 2 distinct operators
+	2. The outputted answer will be incorrect
+Cause: Order of operations is wrong due to the previously inputted values still being stored in the input ArrayList (new system to store values needed?)
+
+Issue: Values still be entered side by side without an operator seperating them
+Steps to reproduce:
+	1. Use the number buttons to enter 2 or more numbers without entering an operator between them
+	2. The numbers will display side by side, "no operation" error will not appear until the equals method is used
+Cause: The check for preventing this is not present outside of the areas of code where attempts are made to solve the equation
+-
