@@ -1,1 +1,15 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.root{ /* style root node (class) */
+	/* properties */
+	-fx-background-color: "blue";
+	/*-fx-background-color: #000000; */
+}
+/* style entire class of items */
+/* additional styling can be done on a per node basis on top of this */
+/* */
+/* .button{ 
+	-fx-font-size:20;
+	-fx-font-family: "Lucida Console";
+	-fx-text-fill:"blue";
+}
+*/

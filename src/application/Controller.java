@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.layout.AnchorPane;
 
 public class Controller {
 	
@@ -14,17 +15,21 @@ public class Controller {
 	
 	public TextField textField;
 	public ToggleButton themeButton;
+	public AnchorPane anchorPane;
 	
 	private boolean error = false;
+	private boolean firstAddition = true;
 	private double result = 0.0;
 	private byte position = -1;
 	private byte operation = 4;
 	private byte lastInput = -1;
 	
 	public void theme(ActionEvent e) {
-		System.out.println("theme");
 		
-		
+		if (themeButton.isSelected()) 
+		    anchorPane.setStyle("-fx-background-color: \"black\";");
+		else 
+			anchorPane.setStyle(null);
 	}
 	
 	public void enterKey(ActionEvent e) {
@@ -41,6 +46,7 @@ public class Controller {
 	}
 	
 	public void addition(ActionEvent e) {
+		System.out.println("addition");
 		switch(lastInput) {
 		case 10:
 			System.out.println("+ already entered");
@@ -95,14 +101,20 @@ public class Controller {
 	public void equals(ActionEvent e) {
 		System.out.println("=");
 		lastInput = 14;
+		System.out.println("test result: " + result);
 		
 		switch (operation) {
 		case 0:
-			System.out.println("addition");
-			for (byte i = 0; i < input.size(); i++) {
-				result += input.get(i);
-				System.out.println("result = " + result);
-			}
+			System.out.println("Addition");
+			System.out.println("size: " + input.size());
+			System.out.println("first:" + input.getFirst());
+			System.out.println("second: " + input.get(1));
+			if (firstAddition == true)
+				for (byte i = 0; i < input.size(); i++)
+					result += input.get(i);
+			if (firstAddition == false)
+				for (byte i = 1; i < input.size(); i++)
+					result += input.get(i);
 			break;
 		case 1:
 			System.out.println("subtraction");
@@ -117,7 +129,6 @@ public class Controller {
 			System.out.println("multiplication");
 			result = input.getFirst();
 			for (byte i = 1; i < input.size(); i++) {
-				System.out.println("i = " + i);
 				result *= input.get(i);
 				System.out.println("result = " + result);
 			}
@@ -141,10 +152,11 @@ public class Controller {
 		{
 			System.out.println("final result: " + result);
 			textField.setText(" = " + result);
-			//input.clear();
-			//position = -1;
-			//result = 0.0;
+			input.clear();
+			input.add(result);
+			position = -1;
 			operation = 4;
+			firstAddition = false;
 		}
 		
 	}
@@ -185,6 +197,7 @@ public class Controller {
 		result = 0.0;
 		operation = 4;
 		lastInput = -1;
+		firstAddition = true;
 		textField.setText("");
 	}
 	

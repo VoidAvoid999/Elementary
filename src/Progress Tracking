@@ -7,17 +7,11 @@
 - Add licensing info into the source code
 - Make code actually follow Java coding conventions
 - Add decimal functionality
-- Add dark mode toggle
+- [DONE] Add dark mode toggle [DONE]
+- Add CSS styling to make it look pretty (I don't know CSS)
 - Fix bugs listed below (duhh) 
 
 *** Current bugs ***
-Issue: After having the calculator solve an equation, it can't properly solve again when another part of an equation is added
-Steps to reproduce: 
-	1. Solve an equation (don't clear the calculator) 
-	2. Add 1 or more operators and values after the answer to create another equation
-	3. Attempt to solve for the new quation, an incorrect answer will be outputted
-Cause: Order of operations is wrong due to the previously inputted values still being stored in the input ArrayList (new system to store values needed?)
-	
 Issue: Nodes do not resize themselves when the window is resized
 Steps to reproduce:
 	1. Open the GUI application
@@ -36,9 +30,28 @@ Steps to reproduce:
 	2. The outputted answer will be incorrect
 Cause: Order of operations is wrong due to the previously inputted values still being stored in the input ArrayList (new system to store values needed?)
 
-Issue: Values still be entered side by side without an operator seperating them
+Issue: Distinct values can be entered side by side without an operator seperating them
 Steps to reproduce:
-	1. Use the number buttons to enter 2 or more numbers without entering an operator between them
-	2. The numbers will display side by side, "no operation" error will not appear until the equals method is used
+	1. a. Use the buttons to enter 2 or more distinct values without entering an operator between them
+	   OR b. Use the buttons to enter operators without putting numbers before or after them
+	2. The values will display side by side. For numbers, the "no operation" error will not appear until the equals method is used
 Cause: The check for preventing this is not present outside of the areas of code where attempts are made to solve the equation
+
+*** Fixed bugs ***
+Issue: After having the calculator solve an equation, it can't properly solve again when another value for an addition equation is added
+Steps to reproduce: 
+	1. Solve an equation (don't clear the calculator) 
+	2. Add 1 or more addition operators and values after the answer to create another equation
+	3. Attempt to solve for the new quation, an incorrect answer will be outputted
+Cause: The result of the previous equation is added to the first element of the input ArrayList to allow 
+	   other operations to avoid this issue
+Notes: -If I try to clear the input ArrayList at the end of the equals method, it becomes able to solve
+	   equations one after the other, but if addition is used at all in any of those equations, it  
+	   becomes unabpart of an le to solve properly again
+	   -It appears to be trying to add together the previous equation and then the new value
+	   of the next equation
+	   -The input ArrayList size is being reset properly
+	   -The first number entered after solving an equation is not added to the input ArrayList
+Solution: The calculator now check to see if the current addition is the first time addition has been used since clearing.
+		  If it has, add all the input ArrayList values together, if not, add them all except for the firt element.  
 -

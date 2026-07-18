@@ -6,22 +6,23 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 
 public class Main extends Application {
 	
 		@Override
-		public void start(Stage primaryStage) {
+		public void start(Stage stage) {
 			try {
 				Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
 				Scene scene = new Scene(root); // dimensions here override SceneBuilder
-				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+				//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+				String css = this.getClass().getResource("application.css").toExternalForm();
+				//scene.getStylesheets().add(css);
 				
 				Image icon = new Image("icon.png");
-				primaryStage.getIcons().add(icon);
-				primaryStage.setTitle("Elementary Calculator");
-				primaryStage.setScene(scene);
-				primaryStage.show();
+				stage.getIcons().add(icon);
+				stage.setTitle("Elementary Calculator");
+				stage.setScene(scene);
+				stage.show();
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
